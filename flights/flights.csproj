@@ -80,21 +80,22 @@
     <Compile Include="adminScreen.Designer.cs">
       <DependentUpon>adminScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="bookFlight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookFlight.Designer.cs">
+      <DependentUpon>bookFlight.cs</DependentUpon>
+    </Compile>
     <Compile Include="flightsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>flightsDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="flightsDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>flightsDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="homeScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="homeScreen.Designer.cs">
+      <DependentUpon>homeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,8 +105,11 @@
     <EmbeddedResource Include="adminScreen.resx">
       <DependentUpon>adminScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="bookFlight.resx">
+      <DependentUpon>bookFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="homeScreen.resx">
+      <DependentUpon>homeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,17 +131,6 @@
     <None Include="flightsDataSet.xss">
       <DependentUpon>flightsDataSet.xsd</DependentUpon>
     </None>
-    <None Include="flightsDataSet1.xsc">
-      <DependentUpon>flightsDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="flightsDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>flightsDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="flightsDataSet1.xss">
-      <DependentUpon>flightsDataSet1.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\adminPassword.datasource" />
     <None Include="Properties\DataSources\adminScreen.datasource" />
@@ -158,11 +151,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="flights.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

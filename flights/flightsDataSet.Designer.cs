@@ -2324,7 +2324,7 @@ namespace flights.flightsDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::flights.Properties.Settings.Default.flightsConnectionString;
+            this._connection.ConnectionString = global::flights.Properties.Settings.Default.flightsConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2720,7 +2720,7 @@ namespace flights.flightsDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::flights.Properties.Settings.Default.flightsConnectionString;
+            this._connection.ConnectionString = global::flights.Properties.Settings.Default.flightsConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3331,7 +3331,7 @@ namespace flights.flightsDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::flights.Properties.Settings.Default.flightsConnectionString;
+            this._connection.ConnectionString = global::flights.Properties.Settings.Default.flightsConnectionString1;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

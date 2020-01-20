@@ -1,6 +1,6 @@
 ﻿namespace flights
 {
-    partial class Form1
+    partial class homeScreen
     {
         /// <summary>
         /// Required designer variable.

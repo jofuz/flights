@@ -33,5 +33,16 @@ namespace flights.Properties {
                 return ((string)(this["flightsConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\bin\\Debug\\flights.md" +
+            "b")]
+        public string flightsConnectionString1 {
+            get {
+                return ((string)(this["flightsConnectionString1"]));
+            }
+        }
     }
 }

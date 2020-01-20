@@ -12,9 +12,9 @@ using System.Data.SQLite;
 
 namespace flights
 {
-    public partial class Form1 : Form
+    public partial class homeScreen : Form
     {
-        public Form1()
+        public homeScreen()
         {
             InitializeComponent();
         }
@@ -34,9 +34,11 @@ namespace flights
             
         }
 
+        // open booking screen
         private void bookFlightBtn_Click(object sender, EventArgs e)
         {
-
+            bookFlight bF = new bookFlight();
+            bF.Show();
         }
 
         // open admin screen
