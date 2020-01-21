@@ -36,16 +36,16 @@
             this.dateLabel = new System.Windows.Forms.Label();
             this.seatLabel = new System.Windows.Forms.Label();
             this.departingMenu = new System.Windows.Forms.ComboBox();
+            this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.flightsDataSet = new flights.flightsDataSet();
             this.arrivingMenu = new System.Windows.Forms.ComboBox();
             this.seatMenu = new System.Windows.Forms.ComboBox();
             this.timeMenu = new System.Windows.Forms.ComboBox();
             this.timeLabel = new System.Windows.Forms.Label();
             this.dateMenu = new System.Windows.Forms.ComboBox();
-            this.flightsDataSet = new flights.flightsDataSet();
-            this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.scheduleTableAdapter = new flights.flightsDataSetTableAdapters.ScheduleTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // pageDescription
@@ -112,8 +112,6 @@
             // 
             // departingMenu
             // 
-            this.departingMenu.DataSource = this.scheduleBindingSource;
-            this.departingMenu.DisplayMember = "Departing";
             this.departingMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.departingMenu.FormattingEnabled = true;
             this.departingMenu.Location = new System.Drawing.Point(38, 159);
@@ -121,10 +119,18 @@
             this.departingMenu.Size = new System.Drawing.Size(184, 28);
             this.departingMenu.TabIndex = 9;
             // 
+            // scheduleBindingSource
+            // 
+            this.scheduleBindingSource.DataMember = "Schedule";
+            this.scheduleBindingSource.DataSource = this.flightsDataSet;
+            // 
+            // flightsDataSet
+            // 
+            this.flightsDataSet.DataSetName = "flightsDataSet";
+            this.flightsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // arrivingMenu
             // 
-            this.arrivingMenu.DataSource = this.scheduleBindingSource;
-            this.arrivingMenu.DisplayMember = "Arriving";
             this.arrivingMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.arrivingMenu.FormattingEnabled = true;
             this.arrivingMenu.Location = new System.Drawing.Point(242, 159);
@@ -147,9 +153,8 @@
             // 
             // timeMenu
             // 
-            this.timeMenu.DataSource = this.scheduleBindingSource;
-            this.timeMenu.DisplayMember = "Time";
             this.timeMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.timeMenu.FormatString = "t";
             this.timeMenu.FormattingEnabled = true;
             this.timeMenu.Location = new System.Drawing.Point(242, 254);
             this.timeMenu.Name = "timeMenu";
@@ -168,24 +173,12 @@
             // 
             // dateMenu
             // 
-            this.dateMenu.DataSource = this.scheduleBindingSource;
-            this.dateMenu.DisplayMember = "Date";
             this.dateMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dateMenu.FormattingEnabled = true;
             this.dateMenu.Location = new System.Drawing.Point(38, 254);
             this.dateMenu.Name = "dateMenu";
             this.dateMenu.Size = new System.Drawing.Size(184, 28);
             this.dateMenu.TabIndex = 15;
-            // 
-            // flightsDataSet
-            // 
-            this.flightsDataSet.DataSetName = "flightsDataSet";
-            this.flightsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // scheduleBindingSource
-            // 
-            this.scheduleBindingSource.DataMember = "Schedule";
-            this.scheduleBindingSource.DataSource = this.flightsDataSet;
             // 
             // scheduleTableAdapter
             // 
@@ -211,8 +204,8 @@
             this.Name = "bookFlight";
             this.Text = "bookFlight";
             this.Load += new System.EventHandler(this.bookFlight_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

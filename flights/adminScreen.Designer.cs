@@ -31,6 +31,18 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adminScreen));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flightNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.departingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.arrivingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.economyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.businessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.flightsDataSet = new flights.flightsDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.saveChangesBtn = new System.Windows.Forms.Button();
@@ -66,25 +78,13 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.scheduleBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.flightsDataSet = new flights.flightsDataSet();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flightNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.departingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.arrivingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.economyDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.businessDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.durationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scheduleTableAdapter = new flights.flightsDataSetTableAdapters.ScheduleTableAdapter();
             this.exitBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -103,13 +103,83 @@
             this.firstDataGridViewTextBoxColumn,
             this.durationDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.scheduleBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(39, 130);
+            this.dataGridView1.Location = new System.Drawing.Point(48, 132);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 242);
+            this.dataGridView1.Size = new System.Drawing.Size(1067, 242);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // flightNoDataGridViewTextBoxColumn
+            // 
+            this.flightNoDataGridViewTextBoxColumn.DataPropertyName = "FlightNo";
+            this.flightNoDataGridViewTextBoxColumn.HeaderText = "FlightNo";
+            this.flightNoDataGridViewTextBoxColumn.Name = "flightNoDataGridViewTextBoxColumn";
+            // 
+            // departingDataGridViewTextBoxColumn
+            // 
+            this.departingDataGridViewTextBoxColumn.DataPropertyName = "Departing";
+            this.departingDataGridViewTextBoxColumn.HeaderText = "Departing";
+            this.departingDataGridViewTextBoxColumn.Name = "departingDataGridViewTextBoxColumn";
+            // 
+            // arrivingDataGridViewTextBoxColumn
+            // 
+            this.arrivingDataGridViewTextBoxColumn.DataPropertyName = "Arriving";
+            this.arrivingDataGridViewTextBoxColumn.HeaderText = "Arriving";
+            this.arrivingDataGridViewTextBoxColumn.Name = "arrivingDataGridViewTextBoxColumn";
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // timeDataGridViewTextBoxColumn
+            // 
+            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
+            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
+            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
+            // 
+            // economyDataGridViewTextBoxColumn
+            // 
+            this.economyDataGridViewTextBoxColumn.DataPropertyName = "Economy";
+            this.economyDataGridViewTextBoxColumn.HeaderText = "Economy";
+            this.economyDataGridViewTextBoxColumn.Name = "economyDataGridViewTextBoxColumn";
+            // 
+            // businessDataGridViewTextBoxColumn
+            // 
+            this.businessDataGridViewTextBoxColumn.DataPropertyName = "Business";
+            this.businessDataGridViewTextBoxColumn.HeaderText = "Business";
+            this.businessDataGridViewTextBoxColumn.Name = "businessDataGridViewTextBoxColumn";
+            // 
+            // firstDataGridViewTextBoxColumn
+            // 
+            this.firstDataGridViewTextBoxColumn.DataPropertyName = "First";
+            this.firstDataGridViewTextBoxColumn.HeaderText = "First";
+            this.firstDataGridViewTextBoxColumn.Name = "firstDataGridViewTextBoxColumn";
+            // 
+            // durationDataGridViewTextBoxColumn
+            // 
+            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
+            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
+            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
+            // 
+            // scheduleBindingSource
+            // 
+            this.scheduleBindingSource.DataMember = "Schedule";
+            this.scheduleBindingSource.DataSource = this.flightsDataSet;
+            // 
+            // flightsDataSet
+            // 
+            this.flightsDataSet.DataSetName = "flightsDataSet";
+            this.flightsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -136,7 +206,7 @@
             // saveChangesBtn
             // 
             this.saveChangesBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.saveChangesBtn.Location = new System.Drawing.Point(640, 505);
+            this.saveChangesBtn.Location = new System.Drawing.Point(995, 505);
             this.saveChangesBtn.Margin = new System.Windows.Forms.Padding(2);
             this.saveChangesBtn.Name = "saveChangesBtn";
             this.saveChangesBtn.Size = new System.Drawing.Size(130, 30);
@@ -266,7 +336,7 @@
             // 
             this.economyLabel.AutoSize = true;
             this.economyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.economyLabel.Location = new System.Drawing.Point(478, 423);
+            this.economyLabel.Location = new System.Drawing.Point(833, 423);
             this.economyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.economyLabel.Name = "economyLabel";
             this.economyLabel.Size = new System.Drawing.Size(58, 15);
@@ -277,7 +347,7 @@
             // 
             this.economyBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Economy", true));
             this.economyBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.economyBox.Location = new System.Drawing.Point(476, 442);
+            this.economyBox.Location = new System.Drawing.Point(831, 442);
             this.economyBox.Margin = new System.Windows.Forms.Padding(2);
             this.economyBox.Name = "economyBox";
             this.economyBox.Size = new System.Drawing.Size(58, 26);
@@ -285,7 +355,7 @@
             // 
             // seatsGroup
             // 
-            this.seatsGroup.Location = new System.Drawing.Point(465, 402);
+            this.seatsGroup.Location = new System.Drawing.Point(820, 402);
             this.seatsGroup.Margin = new System.Windows.Forms.Padding(2);
             this.seatsGroup.Name = "seatsGroup";
             this.seatsGroup.Padding = new System.Windows.Forms.Padding(2);
@@ -293,12 +363,13 @@
             this.seatsGroup.TabIndex = 17;
             this.seatsGroup.TabStop = false;
             this.seatsGroup.Text = "Seats";
+            this.seatsGroup.Visible = false;
             // 
             // businessLabel
             // 
             this.businessLabel.AutoSize = true;
             this.businessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.businessLabel.Location = new System.Drawing.Point(541, 423);
+            this.businessLabel.Location = new System.Drawing.Point(896, 423);
             this.businessLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.businessLabel.Name = "businessLabel";
             this.businessLabel.Size = new System.Drawing.Size(57, 15);
@@ -309,7 +380,7 @@
             // 
             this.businessBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Business", true));
             this.businessBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.businessBox.Location = new System.Drawing.Point(540, 442);
+            this.businessBox.Location = new System.Drawing.Point(895, 442);
             this.businessBox.Margin = new System.Windows.Forms.Padding(2);
             this.businessBox.Name = "businessBox";
             this.businessBox.Size = new System.Drawing.Size(58, 26);
@@ -319,7 +390,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label3.Location = new System.Drawing.Point(616, 423);
+            this.label3.Location = new System.Drawing.Point(971, 423);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 15);
@@ -330,7 +401,7 @@
             // 
             this.firstSeatBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "First", true));
             this.firstSeatBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.firstSeatBox.Location = new System.Drawing.Point(605, 442);
+            this.firstSeatBox.Location = new System.Drawing.Point(960, 442);
             this.firstSeatBox.Margin = new System.Windows.Forms.Padding(2);
             this.firstSeatBox.Name = "firstSeatBox";
             this.firstSeatBox.Size = new System.Drawing.Size(58, 26);
@@ -340,7 +411,7 @@
             // 
             this.durationLabel.AutoSize = true;
             this.durationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.durationLabel.Location = new System.Drawing.Point(712, 423);
+            this.durationLabel.Location = new System.Drawing.Point(1067, 423);
             this.durationLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.durationLabel.Name = "durationLabel";
             this.durationLabel.Size = new System.Drawing.Size(54, 15);
@@ -351,7 +422,7 @@
             // 
             this.durationBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.scheduleBindingSource, "Duration", true));
             this.durationBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.durationBox.Location = new System.Drawing.Point(707, 442);
+            this.durationBox.Location = new System.Drawing.Point(1062, 442);
             this.durationBox.Margin = new System.Windows.Forms.Padding(2);
             this.durationBox.Name = "durationBox";
             this.durationBox.Size = new System.Drawing.Size(58, 26);
@@ -382,9 +453,10 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(807, 36);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1162, 36);
             this.bindingNavigator1.TabIndex = 24;
             this.bindingNavigator1.Text = "bindingNavigator1";
+            this.bindingNavigator1.UseWaitCursor = true;
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -445,7 +517,6 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -479,76 +550,6 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 36);
             // 
-            // scheduleBindingSource
-            // 
-            this.scheduleBindingSource.DataMember = "Schedule";
-            this.scheduleBindingSource.DataSource = this.flightsDataSet;
-            // 
-            // flightsDataSet
-            // 
-            this.flightsDataSet.DataSetName = "flightsDataSet";
-            this.flightsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // flightNoDataGridViewTextBoxColumn
-            // 
-            this.flightNoDataGridViewTextBoxColumn.DataPropertyName = "FlightNo";
-            this.flightNoDataGridViewTextBoxColumn.HeaderText = "FlightNo";
-            this.flightNoDataGridViewTextBoxColumn.Name = "flightNoDataGridViewTextBoxColumn";
-            // 
-            // departingDataGridViewTextBoxColumn
-            // 
-            this.departingDataGridViewTextBoxColumn.DataPropertyName = "Departing";
-            this.departingDataGridViewTextBoxColumn.HeaderText = "Departing";
-            this.departingDataGridViewTextBoxColumn.Name = "departingDataGridViewTextBoxColumn";
-            // 
-            // arrivingDataGridViewTextBoxColumn
-            // 
-            this.arrivingDataGridViewTextBoxColumn.DataPropertyName = "Arriving";
-            this.arrivingDataGridViewTextBoxColumn.HeaderText = "Arriving";
-            this.arrivingDataGridViewTextBoxColumn.Name = "arrivingDataGridViewTextBoxColumn";
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            // 
-            // timeDataGridViewTextBoxColumn
-            // 
-            this.timeDataGridViewTextBoxColumn.DataPropertyName = "Time";
-            this.timeDataGridViewTextBoxColumn.HeaderText = "Time";
-            this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
-            // 
-            // economyDataGridViewTextBoxColumn
-            // 
-            this.economyDataGridViewTextBoxColumn.DataPropertyName = "Economy";
-            this.economyDataGridViewTextBoxColumn.HeaderText = "Economy";
-            this.economyDataGridViewTextBoxColumn.Name = "economyDataGridViewTextBoxColumn";
-            // 
-            // businessDataGridViewTextBoxColumn
-            // 
-            this.businessDataGridViewTextBoxColumn.DataPropertyName = "Business";
-            this.businessDataGridViewTextBoxColumn.HeaderText = "Business";
-            this.businessDataGridViewTextBoxColumn.Name = "businessDataGridViewTextBoxColumn";
-            // 
-            // firstDataGridViewTextBoxColumn
-            // 
-            this.firstDataGridViewTextBoxColumn.DataPropertyName = "First";
-            this.firstDataGridViewTextBoxColumn.HeaderText = "First";
-            this.firstDataGridViewTextBoxColumn.Name = "firstDataGridViewTextBoxColumn";
-            // 
-            // durationDataGridViewTextBoxColumn
-            // 
-            this.durationDataGridViewTextBoxColumn.DataPropertyName = "Duration";
-            this.durationDataGridViewTextBoxColumn.HeaderText = "Duration";
-            this.durationDataGridViewTextBoxColumn.Name = "durationDataGridViewTextBoxColumn";
-            // 
             // scheduleTableAdapter
             // 
             this.scheduleTableAdapter.ClearBeforeFill = true;
@@ -569,7 +570,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 558);
+            this.ClientSize = new System.Drawing.Size(1162, 558);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.durationLabel);
@@ -599,13 +600,14 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "adminScreen";
             this.Text = "Cyanair - Admin";
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.AdminScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
