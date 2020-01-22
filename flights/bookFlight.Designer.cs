@@ -137,6 +137,7 @@
             this.arrivingMenu.Name = "arrivingMenu";
             this.arrivingMenu.Size = new System.Drawing.Size(188, 28);
             this.arrivingMenu.TabIndex = 10;
+            this.arrivingMenu.SelectedIndexChanged += new System.EventHandler(this.arrivingMenu_SelectedIndexChanged);
             // 
             // seatMenu
             // 

@@ -18,18 +18,6 @@ namespace flights
         {
             InitializeComponent();
         }
-        // decalare private varibales to interact with SQLite database
-        // to be used for connection string
-        private SQLiteConnection sql_con;
-
-        // to be used for SQL queries
-        private SQLiteCommand sql_cmd;
-
-        // establish connection with Visual Studio data adapter
-        private SQLiteDataAdapter DB;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
-
         private void Form1_Load(object sender, EventArgs e) {
             
         }

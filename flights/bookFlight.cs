@@ -16,7 +16,7 @@ namespace flights
 
         OleDbConnection connection = new OleDbConnection();
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=flights.mdb";
-        string queryString;
+        
         OleDbDataAdapter myAdapter = new OleDbDataAdapter();
 
         public bookFlight()
@@ -60,45 +60,60 @@ namespace flights
                      timeMenu.ValueMember = "Time";
                      */
 
-                    string idText = "ID";
-                    string flightNoText = "FlightNo";
-                    string departText = "Departing";
-                    string arriveText = "Arriving";
-                    string dateText = "Date";
-                    string timeText = "Time";
-
 
                     string strSqlDepart = "SELECT DISTINCT Departing FROM Schedule";
-                    string strSqlArrive = "SELECT Arriving FROM Schedule WHERE Arriving = '" + arrivingMenu.Text + "'";
-                    string strSqlDate = "SELECT DISTINCT Date FROM Schedule";
-                    string strSqlTime = "SELECT DISTINCT Time FROM Schedule";
+                    string strSqlArrive = "SELECT DISTINCT Arriving FROM Schedule WHERE Departing = @DepartVar";
+                    string strSqlDate = "SELECT DISTINCT Date FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar";
+                    //string strSqlTime = "SELECT DISTINCT Time FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar";
+                    this.departingMenu.Text = "DUB";
 
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(new OleDbCommand(strSqlDepart, conn)); ;
-                    OleDbDataAdapter adapter1 = new OleDbDataAdapter(new OleDbCommand(strSqlArrive, conn)); ;
-                    OleDbDataAdapter adapter2 = new OleDbDataAdapter(new OleDbCommand(strSqlDate, conn)); ;
-                    OleDbDataAdapter adapter3 = new OleDbDataAdapter(new OleDbCommand(strSqlTime, conn)); ;
+                    /*
+                    string strSqlDate = "SELECT Date FROM Schedule WHERE Departing =" + " '" + departingMenu.Text + "' AND Arriving = '" + arrivingMenu.Text + "'";
+                    string strSqlTime = "SELECT Time FROM Schedule WHERE Departing =" + " '" + departingMenu.Text + "' AND Arriving = '" + arrivingMenu.Text + "' AND Date = '" + dateMenu.Text + "'";*/
 
-                    DataSet ds = new DataSet();
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(new OleDbCommand(strSqlDepart, conn));
 
-                    adapter.Fill(ds);
-                    departingMenu.DataSource = ds.Tables[0];
+                    OleDbCommand arrivalcommand = new OleDbCommand(strSqlArrive, conn);
+                    arrivalcommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
+                    OleDbDataAdapter adapter1 = new OleDbDataAdapter(arrivalcommand);
+
+                    OleDbCommand datecommand = new OleDbCommand(strSqlDate, conn);
+                  
+                    datecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
+                    datecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
+                    OleDbDataAdapter adapter2 = new OleDbDataAdapter(datecommand);        
+                    //OleDbCommand timecommand = new OleDbCommand(strSqlTime, conn);
+                   
+                    //timecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
+                    //timecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
+                    //timecommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
+                    //OleDbDataAdapter adapter3 = new OleDbDataAdapter(timecommand);
+
+                    DataTable departures = new DataTable();
+                    adapter.Fill(departures);
+                    departingMenu.DataSource = departures;
                     departingMenu.DisplayMember = "Departing";
                     departingMenu.ValueMember = "Departing";
+                    departingMenu.SelectedIndex = 1;
 
-                    adapter1.Fill(ds);
-                    arrivingMenu.DataSource = ds.Tables[0];
+                    DataTable arrivals = new DataTable();
+                    adapter1.Fill(arrivals);
+                    arrivingMenu.DataSource = arrivals;
                     arrivingMenu.DisplayMember = "Arriving";
                     arrivingMenu.ValueMember = "Arriving";
 
-                    adapter2.Fill(ds);
-                    dateMenu.DataSource = ds.Tables[0];
+
+                    DataTable dates = new DataTable();
+                    adapter2.Fill(dates);
+                    dateMenu.DataSource = dates;
                     dateMenu.DisplayMember = "Date";
                     dateMenu.ValueMember = "Date";
 
-                    adapter3.Fill(ds);
-                    timeMenu.DataSource = ds.Tables[0];
-                    timeMenu.DisplayMember = "Time";
-                    timeMenu.ValueMember = "Time";
+                    //DataTable times = new DataTable();
+                    //adapter3.Fill(times);
+                    //timeMenu.DataSource = times;
+                    //timeMenu.DisplayMember = "Time";
+                    //timeMenu.ValueMember = "Time";
                     
                     MessageBox.Show("Connected");
 
@@ -108,6 +123,39 @@ namespace flights
             {
                 MessageBox.Show("Connection Failed: \n" + ex);
             }
+       
         }
+
+        private void arrivingMenu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(this.departingMenu.Text + this.arrivingMenu.Text + "wtf");
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(connectionString))
+                {
+                    conn.Open();
+                    string strSqlTime = "SELECT DISTINCT Time FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar";// AND Date = @DateVar";
+                    OleDbCommand timecommand = new OleDbCommand(strSqlTime, conn);
+
+                    timecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
+                    timecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
+                    //timecommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
+                    OleDbDataAdapter adapter3 = new OleDbDataAdapter(timecommand);
+                    DataTable times = new DataTable();
+                    adapter3.Fill(times);
+                    this.timeMenu.DataSource = times;
+                    this.timeMenu.DisplayMember = "Time";
+                   this.timeMenu.ValueMember = "Time";
+                }
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+   
+        }
+
+
     }
 }
