@@ -44,6 +44,10 @@
             this.timeLabel = new System.Windows.Forms.Label();
             this.dateMenu = new System.Windows.Forms.ComboBox();
             this.scheduleTableAdapter = new flights.flightsDataSetTableAdapters.ScheduleTableAdapter();
+            this.continueBtn = new System.Windows.Forms.Button();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.idComboBox = new System.Windows.Forms.ComboBox();
+            this.flightNoComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).BeginInit();
             this.SuspendLayout();
@@ -117,7 +121,8 @@
             this.departingMenu.Location = new System.Drawing.Point(38, 159);
             this.departingMenu.Name = "departingMenu";
             this.departingMenu.Size = new System.Drawing.Size(184, 28);
-            this.departingMenu.TabIndex = 9;
+            this.departingMenu.TabIndex = 0;
+            this.departingMenu.SelectedIndexChanged += new System.EventHandler(this.departingMenu_SelectedIndexChanged);
             // 
             // scheduleBindingSource
             // 
@@ -136,7 +141,7 @@
             this.arrivingMenu.Location = new System.Drawing.Point(242, 159);
             this.arrivingMenu.Name = "arrivingMenu";
             this.arrivingMenu.Size = new System.Drawing.Size(188, 28);
-            this.arrivingMenu.TabIndex = 10;
+            this.arrivingMenu.TabIndex = 1;
             this.arrivingMenu.SelectedIndexChanged += new System.EventHandler(this.arrivingMenu_SelectedIndexChanged);
             // 
             // seatMenu
@@ -150,23 +155,23 @@
             this.seatMenu.Location = new System.Drawing.Point(38, 344);
             this.seatMenu.Name = "seatMenu";
             this.seatMenu.Size = new System.Drawing.Size(184, 28);
-            this.seatMenu.TabIndex = 12;
+            this.seatMenu.TabIndex = 4;
             // 
             // timeMenu
             // 
             this.timeMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.timeMenu.FormatString = "t";
             this.timeMenu.FormattingEnabled = true;
-            this.timeMenu.Location = new System.Drawing.Point(242, 254);
+            this.timeMenu.Location = new System.Drawing.Point(246, 254);
             this.timeMenu.Name = "timeMenu";
             this.timeMenu.Size = new System.Drawing.Size(184, 28);
-            this.timeMenu.TabIndex = 13;
+            this.timeMenu.TabIndex = 3;
             // 
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
             this.timeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.timeLabel.Location = new System.Drawing.Point(309, 231);
+            this.timeLabel.Location = new System.Drawing.Point(315, 231);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(43, 20);
             this.timeLabel.TabIndex = 14;
@@ -179,17 +184,63 @@
             this.dateMenu.Location = new System.Drawing.Point(38, 254);
             this.dateMenu.Name = "dateMenu";
             this.dateMenu.Size = new System.Drawing.Size(184, 28);
-            this.dateMenu.TabIndex = 15;
+            this.dateMenu.TabIndex = 2;
             // 
             // scheduleTableAdapter
             // 
             this.scheduleTableAdapter.ClearBeforeFill = true;
             // 
+            // continueBtn
+            // 
+            this.continueBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.continueBtn.Location = new System.Drawing.Point(340, 424);
+            this.continueBtn.Name = "continueBtn";
+            this.continueBtn.Size = new System.Drawing.Size(90, 34);
+            this.continueBtn.TabIndex = 15;
+            this.continueBtn.Text = "Continue";
+            this.continueBtn.UseVisualStyleBackColor = true;
+            this.continueBtn.Click += new System.EventHandler(this.continueBtn_Click);
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cancelBtn.Location = new System.Drawing.Point(38, 424);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(90, 34);
+            this.cancelBtn.TabIndex = 16;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
+            // idComboBox
+            // 
+            this.idComboBox.Enabled = false;
+            this.idComboBox.FormattingEnabled = true;
+            this.idComboBox.Location = new System.Drawing.Point(38, 19);
+            this.idComboBox.Name = "idComboBox";
+            this.idComboBox.Size = new System.Drawing.Size(0, 21);
+            this.idComboBox.TabIndex = 17;
+            this.idComboBox.TabStop = false;
+            // 
+            // flightNoComboBox
+            // 
+            this.flightNoComboBox.Enabled = false;
+            this.flightNoComboBox.FormattingEnabled = true;
+            this.flightNoComboBox.Location = new System.Drawing.Point(38, 58);
+            this.flightNoComboBox.Name = "flightNoComboBox";
+            this.flightNoComboBox.Size = new System.Drawing.Size(0, 21);
+            this.flightNoComboBox.TabIndex = 18;
+            this.flightNoComboBox.TabStop = false;
+            // 
             // bookFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 450);
+            this.ClientSize = new System.Drawing.Size(465, 487);
+            this.Controls.Add(this.flightNoComboBox);
+            this.Controls.Add(this.idComboBox);
+            this.Controls.Add(this.cancelBtn);
+            this.Controls.Add(this.continueBtn);
             this.Controls.Add(this.dateMenu);
             this.Controls.Add(this.timeLabel);
             this.Controls.Add(this.timeMenu);
@@ -229,5 +280,9 @@
         private flightsDataSet flightsDataSet;
         private System.Windows.Forms.BindingSource scheduleBindingSource;
         private flightsDataSetTableAdapters.ScheduleTableAdapter scheduleTableAdapter;
+        private System.Windows.Forms.Button continueBtn;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.ComboBox idComboBox;
+        private System.Windows.Forms.ComboBox flightNoComboBox;
     }
 }
