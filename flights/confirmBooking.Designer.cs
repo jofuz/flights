@@ -41,6 +41,12 @@
             this.emailLabel = new System.Windows.Forms.Label();
             this.confirmBtn = new System.Windows.Forms.Button();
             this.seatLabel = new System.Windows.Forms.Label();
+            this.flightNoValue = new System.Windows.Forms.Label();
+            this.departingValue = new System.Windows.Forms.Label();
+            this.dateValue = new System.Windows.Forms.Label();
+            this.seatValue = new System.Windows.Forms.Label();
+            this.arrivingValue = new System.Windows.Forms.Label();
+            this.timeValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // pageDescription
@@ -160,6 +166,7 @@
             this.confirmBtn.TabIndex = 16;
             this.confirmBtn.Text = "Confirm";
             this.confirmBtn.UseVisualStyleBackColor = true;
+            this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
             // seatLabel
             // 
@@ -171,11 +178,77 @@
             this.seatLabel.TabIndex = 17;
             this.seatLabel.Text = "Seat: ";
             // 
+            // flightNoValue
+            // 
+            this.flightNoValue.AutoSize = true;
+            this.flightNoValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.flightNoValue.Location = new System.Drawing.Point(155, 119);
+            this.flightNoValue.Name = "flightNoValue";
+            this.flightNoValue.Size = new System.Drawing.Size(33, 20);
+            this.flightNoValue.TabIndex = 18;
+            this.flightNoValue.Text = "xxx";
+            // 
+            // departingValue
+            // 
+            this.departingValue.AutoSize = true;
+            this.departingValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.departingValue.Location = new System.Drawing.Point(130, 169);
+            this.departingValue.Name = "departingValue";
+            this.departingValue.Size = new System.Drawing.Size(33, 20);
+            this.departingValue.TabIndex = 19;
+            this.departingValue.Text = "xxx";
+            // 
+            // dateValue
+            // 
+            this.dateValue.AutoSize = true;
+            this.dateValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.dateValue.Location = new System.Drawing.Point(95, 231);
+            this.dateValue.Name = "dateValue";
+            this.dateValue.Size = new System.Drawing.Size(33, 20);
+            this.dateValue.TabIndex = 20;
+            this.dateValue.Text = "xxx";
+            // 
+            // seatValue
+            // 
+            this.seatValue.AutoSize = true;
+            this.seatValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.seatValue.Location = new System.Drawing.Point(91, 289);
+            this.seatValue.Name = "seatValue";
+            this.seatValue.Size = new System.Drawing.Size(33, 20);
+            this.seatValue.TabIndex = 21;
+            this.seatValue.Text = "xxx";
+            // 
+            // arrivingValue
+            // 
+            this.arrivingValue.AutoSize = true;
+            this.arrivingValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.arrivingValue.Location = new System.Drawing.Point(357, 169);
+            this.arrivingValue.Name = "arrivingValue";
+            this.arrivingValue.Size = new System.Drawing.Size(33, 20);
+            this.arrivingValue.TabIndex = 22;
+            this.arrivingValue.Text = "xxx";
+            // 
+            // timeValue
+            // 
+            this.timeValue.AutoSize = true;
+            this.timeValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.timeValue.Location = new System.Drawing.Point(354, 231);
+            this.timeValue.Name = "timeValue";
+            this.timeValue.Size = new System.Drawing.Size(33, 20);
+            this.timeValue.TabIndex = 23;
+            this.timeValue.Text = "xxx";
+            // 
             // confirmBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 482);
+            this.Controls.Add(this.timeValue);
+            this.Controls.Add(this.arrivingValue);
+            this.Controls.Add(this.seatValue);
+            this.Controls.Add(this.dateValue);
+            this.Controls.Add(this.departingValue);
+            this.Controls.Add(this.flightNoValue);
             this.Controls.Add(this.seatLabel);
             this.Controls.Add(this.confirmBtn);
             this.Controls.Add(this.emailLabel);
@@ -212,5 +285,11 @@
         private System.Windows.Forms.Label emailLabel;
         private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.Label seatLabel;
+        private System.Windows.Forms.Label flightNoValue;
+        private System.Windows.Forms.Label departingValue;
+        private System.Windows.Forms.Label dateValue;
+        private System.Windows.Forms.Label seatValue;
+        private System.Windows.Forms.Label arrivingValue;
+        private System.Windows.Forms.Label timeValue;
     }
 }

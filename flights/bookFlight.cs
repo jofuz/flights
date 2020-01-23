@@ -17,8 +17,6 @@ namespace flights
         OleDbConnection connection = new OleDbConnection();
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=flights.mdb";
         
-        OleDbDataAdapter myAdapter = new OleDbDataAdapter();
-
         public static string idStore = "";
         public static string flightNoStore = "";
         public static string departStore = "";
@@ -50,12 +48,10 @@ namespace flights
 
                     // select unique Departing airports from the schedule table
                     string strSqlDepart = "SELECT DISTINCT Departing FROM Schedule";
-
                     OleDbDataAdapter adapter = new OleDbDataAdapter(new OleDbCommand(strSqlDepart, conn)); ;
                     DataSet ds = new DataSet();
 
                     // fill the Departing ComboBox with the data from the Departing Column
-
                     adapter.Fill(ds);
                     departingMenu.DataSource = ds.Tables[0];
                     departingMenu.DisplayMember = "Departing";
@@ -138,9 +134,9 @@ namespace flights
                 {
                     conn.Open();
 
+                    // get arrivals
                     string strSqlArrive = "SELECT DISTINCT Arriving FROM Schedule WHERE Departing = @DepartVar";
                     OleDbCommand arrivecommand = new OleDbCommand(strSqlArrive, conn);
-
                     arrivecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
                     OleDbDataAdapter adapter1 = new OleDbDataAdapter(arrivecommand);
                     DataTable arrivals = new DataTable();
@@ -167,12 +163,12 @@ namespace flights
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
                 {
                     conn.Open();
+                    
+                    // get dates
                     string strSqlDate = "SELECT DISTINCT Date FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar";
                     OleDbCommand datecommand = new OleDbCommand(strSqlDate, conn);
-
                     datecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
                     datecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
-                    //timecommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
                     OleDbDataAdapter adapter2 = new OleDbDataAdapter(datecommand);
                     DataTable dates = new DataTable();
                     adapter2.Fill(dates);
@@ -180,9 +176,9 @@ namespace flights
                     this.dateMenu.DisplayMember = "Date";
                     this.dateMenu.ValueMember = "Date";
 
+                    // get times
                     string strSqlTime = "SELECT DISTINCT Time FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar";
                     OleDbCommand timecommand = new OleDbCommand(strSqlTime, conn);
-
                     timecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
                     timecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
                     timecommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
@@ -193,31 +189,25 @@ namespace flights
                     this.timeMenu.DisplayMember = "Time";
                     this.timeMenu.ValueMember = "Time";
 
-
+                    // get id
                     string strSqlId = "SELECT DISTINCT ID FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar AND Time = @TimeVar";
                     OleDbCommand idcommand = new OleDbCommand(strSqlId, conn);
-
-
                     idcommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
                     idcommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
                     idcommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
                     idcommand.Parameters.AddWithValue("TimeVar", this.timeMenu.Text);
-
                     OleDbDataAdapter idadapter = new OleDbDataAdapter(idcommand);
-
                     DataTable idSet = new DataTable();
                     idadapter.Fill(idSet);
                     this.idComboBox.DataSource = idSet;
                     this.idComboBox.DisplayMember = "ID";
                     this.idComboBox.ValueMember = "ID";
 
+                    // get flight number
                     string strSqlFlightNo = "SELECT DISTINCT FlightNo FROM Schedule WHERE ID = @IdVar";
                     OleDbCommand flightnocommand = new OleDbCommand(strSqlFlightNo, conn);
-
                     flightnocommand.Parameters.AddWithValue("IdVar", this.idComboBox.Text);
-
                     OleDbDataAdapter flightnoadapter = new OleDbDataAdapter(flightnocommand);
-
                     DataTable fightnoset = new DataTable();
                     flightnoadapter.Fill(fightnoset);
                     this.flightNoComboBox.DataSource = fightnoset;
@@ -257,35 +247,5 @@ namespace flights
             cB.Show();
 
         }
-        /*
-private void timeMenu_SelectedIndexChanged(object sender, EventArgs e)
-{
-  MessageBox.Show("Departing: " + this.departingMenu.Text + " & Arriving: " + this.arrivingMenu.Text + " Date: " + this.dateMenu.Text);
-  try
-  {
-      using (OleDbConnection conn = new OleDbConnection(connectionString))
-      {
-          conn.Open();
-          string strSqlTime = "SELECT DISTINCT Time FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar";
-          OleDbCommand timecommand = new OleDbCommand(strSqlTime, conn);
-
-          timecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
-          timecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
-          timecommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
-          OleDbDataAdapter adapter3 = new OleDbDataAdapter(timecommand);
-          DataTable times = new DataTable();
-          adapter3.Fill(times);
-          this.timeMenu.DataSource = times;
-          this.timeMenu.DisplayMember = "Time";
-          this.timeMenu.ValueMember = "Time";
-
-      }
-
-  }
-  catch (Exception ex)
-  {
-      MessageBox.Show(ex.ToString());
-  }
-}*/
     }
 }
