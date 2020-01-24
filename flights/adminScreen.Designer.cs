@@ -110,6 +110,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1067, 242);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.UseWaitCursor = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -185,23 +186,25 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.Location = new System.Drawing.Point(366, 40);
+            this.label1.Location = new System.Drawing.Point(524, 40);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 31);
             this.label1.TabIndex = 1;
             this.label1.Text = "Cyanair";
+            this.label1.UseWaitCursor = true;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(320, 84);
+            this.label2.Location = new System.Drawing.Point(478, 84);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(209, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Modifying the flight schedule";
+            this.label2.UseWaitCursor = true;
             // 
             // saveChangesBtn
             // 
@@ -213,6 +216,7 @@
             this.saveChangesBtn.TabIndex = 3;
             this.saveChangesBtn.Text = "Save Changes";
             this.saveChangesBtn.UseVisualStyleBackColor = true;
+            this.saveChangesBtn.UseWaitCursor = true;
             this.saveChangesBtn.Click += new System.EventHandler(this.saveChangesBtn_Click);
             // 
             // cancelButton
@@ -225,6 +229,7 @@
             this.cancelButton.TabIndex = 4;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.UseWaitCursor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // flightNoBox
@@ -236,6 +241,7 @@
             this.flightNoBox.Name = "flightNoBox";
             this.flightNoBox.Size = new System.Drawing.Size(76, 26);
             this.flightNoBox.TabIndex = 5;
+            this.flightNoBox.UseWaitCursor = true;
             // 
             // flightNoLabel
             // 
@@ -247,6 +253,7 @@
             this.flightNoLabel.Size = new System.Drawing.Size(85, 15);
             this.flightNoLabel.TabIndex = 6;
             this.flightNoLabel.Text = "Flight Number";
+            this.flightNoLabel.UseWaitCursor = true;
             // 
             // departingLabel
             // 
@@ -258,6 +265,7 @@
             this.departingLabel.Size = new System.Drawing.Size(61, 15);
             this.departingLabel.TabIndex = 8;
             this.departingLabel.Text = "Departing";
+            this.departingLabel.UseWaitCursor = true;
             // 
             // departingBox
             // 
@@ -268,6 +276,7 @@
             this.departingBox.Name = "departingBox";
             this.departingBox.Size = new System.Drawing.Size(70, 26);
             this.departingBox.TabIndex = 7;
+            this.departingBox.UseWaitCursor = true;
             // 
             // arrivingLabel
             // 
@@ -279,6 +288,7 @@
             this.arrivingLabel.Size = new System.Drawing.Size(47, 15);
             this.arrivingLabel.TabIndex = 10;
             this.arrivingLabel.Text = "Arriving";
+            this.arrivingLabel.UseWaitCursor = true;
             // 
             // arrivingBox
             // 
@@ -289,6 +299,7 @@
             this.arrivingBox.Name = "arrivingBox";
             this.arrivingBox.Size = new System.Drawing.Size(65, 26);
             this.arrivingBox.TabIndex = 9;
+            this.arrivingBox.UseWaitCursor = true;
             // 
             // dateLabel
             // 
@@ -300,6 +311,7 @@
             this.dateLabel.Size = new System.Drawing.Size(33, 15);
             this.dateLabel.TabIndex = 12;
             this.dateLabel.Text = "Date";
+            this.dateLabel.UseWaitCursor = true;
             // 
             // dateBox
             // 
@@ -310,6 +322,7 @@
             this.dateBox.Name = "dateBox";
             this.dateBox.Size = new System.Drawing.Size(92, 26);
             this.dateBox.TabIndex = 11;
+            this.dateBox.UseWaitCursor = true;
             // 
             // timeLabel
             // 
@@ -321,6 +334,7 @@
             this.timeLabel.Size = new System.Drawing.Size(35, 15);
             this.timeLabel.TabIndex = 14;
             this.timeLabel.Text = "Time";
+            this.timeLabel.UseWaitCursor = true;
             // 
             // timeBox
             // 
@@ -331,6 +345,7 @@
             this.timeBox.Name = "timeBox";
             this.timeBox.Size = new System.Drawing.Size(58, 26);
             this.timeBox.TabIndex = 13;
+            this.timeBox.UseWaitCursor = true;
             // 
             // economyLabel
             // 
@@ -342,6 +357,7 @@
             this.economyLabel.Size = new System.Drawing.Size(58, 15);
             this.economyLabel.TabIndex = 16;
             this.economyLabel.Text = "Economy";
+            this.economyLabel.UseWaitCursor = true;
             // 
             // economyBox
             // 
@@ -352,6 +368,7 @@
             this.economyBox.Name = "economyBox";
             this.economyBox.Size = new System.Drawing.Size(58, 26);
             this.economyBox.TabIndex = 15;
+            this.economyBox.UseWaitCursor = true;
             // 
             // seatsGroup
             // 
@@ -363,6 +380,7 @@
             this.seatsGroup.TabIndex = 17;
             this.seatsGroup.TabStop = false;
             this.seatsGroup.Text = "Seats";
+            this.seatsGroup.UseWaitCursor = true;
             this.seatsGroup.Visible = false;
             // 
             // businessLabel
@@ -375,6 +393,7 @@
             this.businessLabel.Size = new System.Drawing.Size(57, 15);
             this.businessLabel.TabIndex = 19;
             this.businessLabel.Text = "Business";
+            this.businessLabel.UseWaitCursor = true;
             // 
             // businessBox
             // 
@@ -385,6 +404,7 @@
             this.businessBox.Name = "businessBox";
             this.businessBox.Size = new System.Drawing.Size(58, 26);
             this.businessBox.TabIndex = 18;
+            this.businessBox.UseWaitCursor = true;
             // 
             // label3
             // 
@@ -396,6 +416,7 @@
             this.label3.Size = new System.Drawing.Size(30, 15);
             this.label3.TabIndex = 21;
             this.label3.Text = "First";
+            this.label3.UseWaitCursor = true;
             // 
             // firstSeatBox
             // 
@@ -406,6 +427,7 @@
             this.firstSeatBox.Name = "firstSeatBox";
             this.firstSeatBox.Size = new System.Drawing.Size(58, 26);
             this.firstSeatBox.TabIndex = 20;
+            this.firstSeatBox.UseWaitCursor = true;
             // 
             // durationLabel
             // 
@@ -417,6 +439,7 @@
             this.durationLabel.Size = new System.Drawing.Size(54, 15);
             this.durationLabel.TabIndex = 23;
             this.durationLabel.Text = "Duration";
+            this.durationLabel.UseWaitCursor = true;
             // 
             // durationBox
             // 
@@ -427,6 +450,7 @@
             this.durationBox.Name = "durationBox";
             this.durationBox.Size = new System.Drawing.Size(58, 26);
             this.durationBox.TabIndex = 22;
+            this.durationBox.UseWaitCursor = true;
             // 
             // bindingNavigator1
             // 
@@ -564,6 +588,7 @@
             this.exitBtn.TabIndex = 25;
             this.exitBtn.Text = "Exit";
             this.exitBtn.UseVisualStyleBackColor = true;
+            this.exitBtn.UseWaitCursor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // adminScreen

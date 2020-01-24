@@ -59,39 +59,42 @@ namespace flights
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
                 {
                     conn.Open();
-
+                    /*
                     string reservation = "INSERT INTO Reservation (FlightNo, Departing, Arriving, Date, Time, SeatClass, BookingReference, PassengerName, PassengerEmail) " +
                         "VALUES (" + flightNoValue.Text + ", " + departingValue.Text + ", " + arrivingValue.Text + ", " + dateValue.Text + ", " + timeValue.Text + ", " + seatValue.Text + ", " + flightNoValue.Text + referenceNumber + seatValue.Text + ", " + nameTextBox.Text + ", " + emailTextBox.Text + ")";
                     OleDbCommand query = new OleDbCommand(reservation, conn);
                     MessageBox.Show("query: " + reservation);
 
                     query.ExecuteNonQuery();
-                    
+                    */
 
-                    /*
-                     string reservation = "INSERT INTO Reservation "
-                                    + "(FlightNo, Departing, Arriving, Date, Time, SeatClass, BookingReference, PassengerName, PassengerEmail) "
-                                    + "VALUES (@FlightNo, @Departing, @Arriving, @Date, @Time, @SeatClass, @BookingRefernce, @PassengerName, @PassengerEmail)";
+                   
+
+                   string reservation = "INSERT INTO Reservation "
+                                    + "(FlightNo, Departing, Arriving, [Date], [Time], SeatClass, BookingReference, PassengerName, PassengerEmail) "
+                                    + "VALUES (@FlightNo, @Departing, @Arriving, @Date, @Time, @SeatClass, @BookingReference, @PassengerName, @PassengerEmail)";
 
                     OleDbCommand insertCommand = new OleDbCommand(reservation, conn);
-                    OleDbDataAdapter adapter = new OleDbDataAdapter(new OleDbCommand(insertCommand.ToString())); ;
+                    insertCommand.CommandType = CommandType.Text;
 
-                    // insertCommand.Parameters.Add("@ID", OleDbType.Integer).Value = 1;
-                    insertCommand.Parameters.Add("@FlightNo", OleDbType.Char).Value = flightNoValue.Text;
-                    insertCommand.Parameters.Add("@Departing", OleDbType.Char).Value = departingValue.Text;
-                    insertCommand.Parameters.Add("@Arriving", OleDbType.Char).Value = arrivingValue.Text;
-                    insertCommand.Parameters.Add("@Date", OleDbType.Date).Value = dateValue.Text;
-                    insertCommand.Parameters.Add("@Time", OleDbType.Char).Value = timeValue.Text;
-                    insertCommand.Parameters.Add("@SeatClass", OleDbType.Char).Value = seatValue.Text;
-                    insertCommand.Parameters.Add("@BookingReference", OleDbType.Char).Value = referenceNumber;
-                    insertCommand.Parameters.Add("@PassengerName", OleDbType.Char).Value = nameTextBox.Text;
-                    insertCommand.Parameters.Add("@PassengerEmail", OleDbType.Char).Value = emailTextBox.Text;
+                    // insertCommand.Parameters.AddWithValue("ID", OleDbType.Integer).Value = 1;
+                    insertCommand.Parameters.AddWithValue("FlightNo", this.flightNoValue.Text);
+                    insertCommand.Parameters.AddWithValue("Departing", this.departingValue);
+                    insertCommand.Parameters.AddWithValue("Arriving", this.arrivingValue.Text);
+                    insertCommand.Parameters.AddWithValue("Date", this.dateValue.Text);
+                    insertCommand.Parameters.AddWithValue("Time", this.timeValue.Text);
+                    insertCommand.Parameters.AddWithValue("SeatClass", this.seatValue.Text);
+                    insertCommand.Parameters.AddWithValue("BookingReference", referenceNumber);
+                    insertCommand.Parameters.AddWithValue("PassengerName", this.nameTextBox.Text);
+                    insertCommand.Parameters.AddWithValue("PassengerEmail", this.emailTextBox.Text);
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(insertCommand);
+                    adapter.InsertCommand = insertCommand;
 
-                    MessageBox.Show("query: " + reservation);
+                    MessageBox.Show("query: " + insertCommand);
 
-                    conn.Open();
                     insertCommand.ExecuteNonQuery();
-                    */
+                    conn.Close();
+                    
 
                 }
             }
