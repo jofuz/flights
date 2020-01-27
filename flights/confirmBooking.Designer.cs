@@ -47,6 +47,8 @@
             this.seatValue = new System.Windows.Forms.Label();
             this.arrivingValue = new System.Windows.Forms.Label();
             this.timeValue = new System.Windows.Forms.Label();
+            this.idValue = new System.Windows.Forms.Label();
+            this.cancelBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pageDescription
@@ -238,11 +240,34 @@
             this.timeValue.TabIndex = 23;
             this.timeValue.Text = "xxx";
             // 
+            // idValue
+            // 
+            this.idValue.AutoSize = true;
+            this.idValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 0.1F);
+            this.idValue.Location = new System.Drawing.Point(0, 0);
+            this.idValue.Name = "idValue";
+            this.idValue.Size = new System.Drawing.Size(8, 2);
+            this.idValue.TabIndex = 24;
+            this.idValue.Text = "idstore";
+            // 
+            // cancelBtn
+            // 
+            this.cancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cancelBtn.Location = new System.Drawing.Point(41, 432);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(106, 31);
+            this.cancelBtn.TabIndex = 25;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            // 
             // confirmBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 482);
+            this.Controls.Add(this.cancelBtn);
+            this.Controls.Add(this.idValue);
             this.Controls.Add(this.timeValue);
             this.Controls.Add(this.arrivingValue);
             this.Controls.Add(this.seatValue);
@@ -291,5 +316,7 @@
         private System.Windows.Forms.Label seatValue;
         private System.Windows.Forms.Label arrivingValue;
         private System.Windows.Forms.Label timeValue;
+        private System.Windows.Forms.Label idValue;
+        private System.Windows.Forms.Button cancelBtn;
     }
 }

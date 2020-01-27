@@ -272,7 +272,7 @@
   <xs:element name="flightsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="flightsDataSet" msprop:Generator_UserDSName="flightsDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Airports" msprop:Generator_TableClassName="AirportsDataTable" msprop:Generator_TableVarName="tableAirports" msprop:Generator_RowChangedName="AirportsRowChanged" msprop:Generator_TablePropName="Airports" msprop:Generator_RowDeletingName="AirportsRowDeleting" msprop:Generator_RowChangingName="AirportsRowChanging" msprop:Generator_RowEvHandlerName="AirportsRowChangeEventHandler" msprop:Generator_RowDeletedName="AirportsRowDeleted" msprop:Generator_RowClassName="AirportsRow" msprop:Generator_UserTableName="Airports" msprop:Generator_RowEvArgName="AirportsRowChangeEvent">
+        <xs:element name="Airports" msprop:Generator_TableClassName="AirportsDataTable" msprop:Generator_TableVarName="tableAirports" msprop:Generator_TablePropName="Airports" msprop:Generator_RowDeletingName="AirportsRowDeleting" msprop:Generator_RowChangingName="AirportsRowChanging" msprop:Generator_RowEvHandlerName="AirportsRowChangeEventHandler" msprop:Generator_RowDeletedName="AirportsRowDeleted" msprop:Generator_UserTableName="Airports" msprop:Generator_RowChangedName="AirportsRowChanged" msprop:Generator_RowEvArgName="AirportsRowChangeEvent" msprop:Generator_RowClassName="AirportsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -293,7 +293,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Reservation" msprop:Generator_TableClassName="ReservationDataTable" msprop:Generator_TableVarName="tableReservation" msprop:Generator_RowChangedName="ReservationRowChanged" msprop:Generator_TablePropName="Reservation" msprop:Generator_RowDeletingName="ReservationRowDeleting" msprop:Generator_RowChangingName="ReservationRowChanging" msprop:Generator_RowEvHandlerName="ReservationRowChangeEventHandler" msprop:Generator_RowDeletedName="ReservationRowDeleted" msprop:Generator_RowClassName="ReservationRow" msprop:Generator_UserTableName="Reservation" msprop:Generator_RowEvArgName="ReservationRowChangeEvent">
+        <xs:element name="Reservation" msprop:Generator_TableClassName="ReservationDataTable" msprop:Generator_TableVarName="tableReservation" msprop:Generator_TablePropName="Reservation" msprop:Generator_RowDeletingName="ReservationRowDeleting" msprop:Generator_RowChangingName="ReservationRowChanging" msprop:Generator_RowEvHandlerName="ReservationRowChangeEventHandler" msprop:Generator_RowDeletedName="ReservationRowDeleted" msprop:Generator_UserTableName="Reservation" msprop:Generator_RowChangedName="ReservationRowChanged" msprop:Generator_RowEvArgName="ReservationRowChangeEvent" msprop:Generator_RowClassName="ReservationRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -363,7 +363,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Schedule" msprop:Generator_TableClassName="ScheduleDataTable" msprop:Generator_TableVarName="tableSchedule" msprop:Generator_RowChangedName="ScheduleRowChanged" msprop:Generator_TablePropName="Schedule" msprop:Generator_RowDeletingName="ScheduleRowDeleting" msprop:Generator_RowChangingName="ScheduleRowChanging" msprop:Generator_RowEvHandlerName="ScheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="ScheduleRowDeleted" msprop:Generator_RowClassName="ScheduleRow" msprop:Generator_UserTableName="Schedule" msprop:Generator_RowEvArgName="ScheduleRowChangeEvent">
+        <xs:element name="Schedule" msprop:Generator_TableClassName="ScheduleDataTable" msprop:Generator_TableVarName="tableSchedule" msprop:Generator_TablePropName="Schedule" msprop:Generator_RowDeletingName="ScheduleRowDeleting" msprop:Generator_RowChangingName="ScheduleRowChanging" msprop:Generator_RowEvHandlerName="ScheduleRowChangeEventHandler" msprop:Generator_RowDeletedName="ScheduleRowDeleted" msprop:Generator_UserTableName="Schedule" msprop:Generator_RowChangedName="ScheduleRowChanged" msprop:Generator_RowEvArgName="ScheduleRowChangeEvent" msprop:Generator_RowClassName="ScheduleRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />

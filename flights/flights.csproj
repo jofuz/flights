@@ -86,6 +86,12 @@
     <Compile Include="bookFlight.Designer.cs">
       <DependentUpon>bookFlight.cs</DependentUpon>
     </Compile>
+    <Compile Include="bookingConfirmed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="bookingConfirmed.Designer.cs">
+      <DependentUpon>bookingConfirmed.cs</DependentUpon>
+    </Compile>
     <Compile Include="confirmBooking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="bookFlight.resx">
       <DependentUpon>bookFlight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bookingConfirmed.resx">
+      <DependentUpon>bookingConfirmed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="confirmBooking.resx">
       <DependentUpon>confirmBooking.cs</DependentUpon>

@@ -55,6 +55,8 @@ namespace flights
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
+            homeScreen hS = new homeScreen();
+            hS.Show();
             this.Hide();
         }
     }

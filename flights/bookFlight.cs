@@ -228,7 +228,10 @@ namespace flights
         {
             if (MessageBox.Show("Do you want to exit to the home screen?", "Confirm", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                connection.Close();                
+                connection.Close();
+
+                homeScreen hS = new homeScreen();
+                hS.Show();
                 this.Close();
             }
         }
@@ -245,6 +248,7 @@ namespace flights
 
             confirmBooking cB = new confirmBooking();
             cB.Show();
+            this.Close();
 
         }
     }

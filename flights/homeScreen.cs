@@ -27,6 +27,7 @@ namespace flights
         {
             bookFlight bF = new bookFlight();
             bF.Show();
+            this.Hide();
         }
 
         // open admin screen
@@ -34,6 +35,7 @@ namespace flights
         {
             adminPassword aP = new adminPassword();
             aP.Show();
+            this.Hide();
         }
     }
 }
