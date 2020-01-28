@@ -148,10 +148,6 @@
             // 
             this.seatMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.seatMenu.FormattingEnabled = true;
-            this.seatMenu.Items.AddRange(new object[] {
-            "Economy",
-            "Business",
-            "First"});
             this.seatMenu.Location = new System.Drawing.Point(38, 344);
             this.seatMenu.Name = "seatMenu";
             this.seatMenu.Size = new System.Drawing.Size(184, 28);

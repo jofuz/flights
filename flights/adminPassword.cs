@@ -39,7 +39,10 @@ namespace flights
 
         private void returnToHomeBtn_Click(object sender, EventArgs e)
         {
-
+            // return to home screen
+            homeScreen hS = new homeScreen();
+            hS.Show();
+            this.Hide();
         }
     }
 }

@@ -25,6 +25,7 @@ namespace flights
         // open booking screen
         private void bookFlightBtn_Click(object sender, EventArgs e)
         {
+            // open book flight page
             bookFlight bF = new bookFlight();
             bF.Show();
             this.Hide();
@@ -33,6 +34,7 @@ namespace flights
         // open admin screen
         private void adminScreenBtn_Click(object sender, EventArgs e)
         {
+            // open admin password page
             adminPassword aP = new adminPassword();
             aP.Show();
             this.Hide();

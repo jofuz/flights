@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Diagnostics;
 
 namespace flights
 {
@@ -16,7 +17,8 @@ namespace flights
 
         OleDbConnection connection = new OleDbConnection();
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=flights.mdb";
-        
+
+        // declaring public static variables that will store the booking information to carry over to the confirm booking page.
         public static string idStore = "";
         public static string flightNoStore = "";
         public static string departStore = "";
@@ -38,8 +40,6 @@ namespace flights
             //this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
             //this.timeMenu.FormatString = "HH:mm";
 
-            this.seatMenu.SelectedIndex = 0;
-
             try
             {
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
@@ -57,64 +57,13 @@ namespace flights
                     departingMenu.DisplayMember = "Departing";
                     departingMenu.ValueMember = "Departing";
 
+                    // poplate the seat menu with the first item in the seat menu
+                    this.seatMenu.SelectedIndex = 0;
 
+                    Debug.WriteLine("Connected");
 
-                    //string strSqlDepart = "SELECT DISTINCT Departing FROM Schedule";
-                    //string strSqlArrive = "SELECT DISTINCT Arriving FROM Schedule WHERE Departing = @DepartVar";
-                    //string strSqlDate = "SELECT DISTINCT Date FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar";
-                    ////string strSqlTime = "SELECT DISTINCT Time FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar";
-                    //this.departingMenu.Text = "DUB";
-
-                    ///*
-                    //string strSqlDate = "SELECT Date FROM Schedule WHERE Departing =" + " '" + departingMenu.Text + "' AND Arriving = '" + arrivingMenu.Text + "'";
-                    //string strSqlTime = "SELECT Time FROM Schedule WHERE Departing =" + " '" + departingMenu.Text + "' AND Arriving = '" + arrivingMenu.Text + "' AND Date = '" + dateMenu.Text + "'";*/
-
-                    //OleDbDataAdapter adapter = new OleDbDataAdapter(new OleDbCommand(strSqlDepart, conn));
-
-                    //OleDbCommand arrivalcommand = new OleDbCommand(strSqlArrive, conn);
-                    //arrivalcommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
-                    //OleDbDataAdapter adapter1 = new OleDbDataAdapter(arrivalcommand);
-
-                    //OleDbCommand datecommand = new OleDbCommand(strSqlDate, conn);
-
-                    //datecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
-                    //datecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
-                    //OleDbDataAdapter adapter2 = new OleDbDataAdapter(datecommand);        
-                    ////OleDbCommand timecommand = new OleDbCommand(strSqlTime, conn);
-
-                    ////timecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
-                    ////timecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
-                    ////timecommand.Parameters.AddWithValue("DateVar", this.dateMenu.Text);
-                    ////OleDbDataAdapter adapter3 = new OleDbDataAdapter(timecommand);
-
-                    //DataTable departures = new DataTable();
-                    //adapter.Fill(departures);
-                    //departingMenu.DataSource = departures;
-                    //departingMenu.DisplayMember = "Departing";
-                    //departingMenu.ValueMember = "Departing";
-                    //departingMenu.SelectedIndex = 1;
-
-                    //DataTable arrivals = new DataTable();
-                    //adapter1.Fill(arrivals);
-                    //arrivingMenu.DataSource = arrivals;
-                    //arrivingMenu.DisplayMember = "Arriving";
-                    //arrivingMenu.ValueMember = "Arriving";
-
-
-                    //DataTable dates = new DataTable();
-                    //adapter2.Fill(dates);
-                    //dateMenu.DataSource = dates;
-                    //dateMenu.DisplayMember = "Date";
-                    //dateMenu.ValueMember = "Date";
-
-                    ////DataTable times = new DataTable();
-                    ////adapter3.Fill(times);
-                    ////timeMenu.DataSource = times;
-                    ////timeMenu.DisplayMember = "Time";
-                    ////timeMenu.ValueMember = "Time";
-
-                    MessageBox.Show("Connected");
-
+                    conn.Close();
+                       
                 }
             }
             catch (System.Exception ex)
@@ -135,8 +84,11 @@ namespace flights
                     conn.Open();
 
                     // get arrivals
+                    // select a distinc arriving airport from the same row as the departing airport that was selected
                     string strSqlArrive = "SELECT DISTINCT Arriving FROM Schedule WHERE Departing = @DepartVar";
                     OleDbCommand arrivecommand = new OleDbCommand(strSqlArrive, conn);
+
+                    // add a variable to the query string
                     arrivecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
                     OleDbDataAdapter adapter1 = new OleDbDataAdapter(arrivecommand);
                     DataTable arrivals = new DataTable();
@@ -144,6 +96,8 @@ namespace flights
                     this.arrivingMenu.DataSource = arrivals;
                     this.arrivingMenu.DisplayMember = "Arriving";
                     this.arrivingMenu.ValueMember = "Arriving";
+                    conn.Close();
+
                 }
 
             }
@@ -157,7 +111,6 @@ namespace flights
         // find the matching dates and times for selected airports
         private void arrivingMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // MessageBox.Show("Departing: " + this.departingMenu.Text + " & Arriving: " + this.arrivingMenu.Text);
             try
             {
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
@@ -165,8 +118,10 @@ namespace flights
                     conn.Open();
                     
                     // get dates
+                    // get dates from the same row as the chosen departure and arrival airports
                     string strSqlDate = "SELECT DISTINCT Date FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar";
                     OleDbCommand datecommand = new OleDbCommand(strSqlDate, conn);
+                    // using variables helps to keep the query string short and easier to read
                     datecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
                     datecommand.Parameters.AddWithValue("ArriveVar", this.arrivingMenu.Text);
                     OleDbDataAdapter adapter2 = new OleDbDataAdapter(datecommand);
@@ -177,6 +132,7 @@ namespace flights
                     this.dateMenu.ValueMember = "Date";
 
                     // get times
+                    // get dates from the same row as the chosen departing, arrival and dates
                     string strSqlTime = "SELECT DISTINCT Time FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar";
                     OleDbCommand timecommand = new OleDbCommand(strSqlTime, conn);
                     timecommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
@@ -190,6 +146,7 @@ namespace flights
                     this.timeMenu.ValueMember = "Time";
 
                     // get id
+                    // get ID from chosen fields, this is used to carry the flight information over to the next page 
                     string strSqlId = "SELECT DISTINCT ID FROM Schedule WHERE Departing = @DepartVar AND Arriving = @ArriveVar AND Date = @DateVar AND Time = @TimeVar";
                     OleDbCommand idcommand = new OleDbCommand(strSqlId, conn);
                     idcommand.Parameters.AddWithValue("DepartVar", this.departingMenu.Text);
@@ -204,6 +161,7 @@ namespace flights
                     this.idComboBox.ValueMember = "ID";
 
                     // get flight number
+                    // get Flight Number from chosen fields, this is used to carry the flight information over to the next page 
                     string strSqlFlightNo = "SELECT DISTINCT FlightNo FROM Schedule WHERE ID = @IdVar";
                     OleDbCommand flightnocommand = new OleDbCommand(strSqlFlightNo, conn);
                     flightnocommand.Parameters.AddWithValue("IdVar", this.idComboBox.Text);
@@ -214,6 +172,14 @@ namespace flights
                     this.flightNoComboBox.DisplayMember = "FlightNo";
                     this.flightNoComboBox.ValueMember = "FlightNo";
 
+                    // check for seat availabilty
+                    checkSeats();
+
+                    Debug.WriteLine("------------------------------- Flight --------------------------------\n" + 
+                        "FlightNo: " + this.flightNoComboBox.Text + " Departing: " + this.departingMenu.Text + " & Arriving: " + this.arrivingMenu.Text + " Date: " +this.dateMenu.Text + " Time: " + this.timeMenu.Text 
+                        + "\n ---------------------------------------------------------------------------");
+
+                    conn.Close();
                 }
 
             }
@@ -224,6 +190,7 @@ namespace flights
    
         }
 
+        // this brings the user to the home screen
         private void cancelBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to exit to the home screen?", "Confirm", MessageBoxButtons.OKCancel) == DialogResult.OK)
@@ -236,8 +203,57 @@ namespace flights
             }
         }
 
+        // check for available seats
+        private void checkSeats()
+        {
+            // clear seats list before trying query to avoid duplications
+            seatMenu.Items.Clear();
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(connectionString))
+                {
+                    conn.Open();
+                    string seatcheckquery = "SELECT * FROM Schedule WHERE FlightNo = '" + flightNoComboBox.Text + "';";
+                    using (OleDbCommand cmd = new OleDbCommand(seatcheckquery, conn))
+                    {
+                        DataTable dt = new DataTable();
+                        dt.Load(cmd.ExecuteReader());
+                        DataRow row = dt.Rows[0];
+
+                        // store each column value in a variable and convert to int
+                        int economy = Convert.ToInt32(row.ItemArray.GetValue(6));
+                        int business = Convert.ToInt32(row.ItemArray.GetValue(7));
+                        int first = Convert.ToInt32(row.ItemArray.GetValue(8));
+
+                        // if the seats are available show them in the seats combobox
+                        if (economy > 0)
+                        {
+                            seatMenu.Items.Add("Economy");
+                        }
+                        if (business > 0) {
+                            seatMenu.Items.Add("Business");
+                        }
+                        if (first > 0) {
+                            seatMenu.Items.Add("First");
+                        }
+                        Debug.WriteLine("------------- Available Seats ---------------- \n" + 
+                            "Economy: 5" + economy +  " Business: " + business + " First: " + first + 
+                            "\n ---------------------------------------");
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        // continue to confirm booking screen
         private void continueBtn_Click(object sender, EventArgs e)
         {
+            // storing flight info
             idStore = idComboBox.Text;
             flightNoStore = flightNoComboBox.Text;
             departStore = departingMenu.Text;
@@ -246,6 +262,7 @@ namespace flights
             timeStore = timeMenu.Text;
             seatStore = seatMenu.Text;
 
+            // open confirm booking page
             confirmBooking cB = new confirmBooking();
             cB.Show();
             this.Close();

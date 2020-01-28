@@ -19,6 +19,8 @@ namespace flights
 
         private void bookingConfirmed_Load(object sender, EventArgs e)
         {
+            // load the static variables which contain the booking info
+
             bookingRefValue.Text = confirmBooking.refStore;
             nameValue.Text = confirmBooking.nameStore;
             emailValue.Text = confirmBooking.emailStore;
@@ -31,6 +33,7 @@ namespace flights
 
         private void homeBtn_Click(object sender, EventArgs e)
         {
+            // return to home screen
             homeScreen hS = new homeScreen();
             hS.Show();
             this.Close();
@@ -38,6 +41,7 @@ namespace flights
 
         private void bookAFlightBtn_Click(object sender, EventArgs e)
         {
+            // go to book a flight screen
             bookFlight bF = new bookFlight();
             bF.Show();
             this.Close();

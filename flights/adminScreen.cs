@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SQLite;
-
+using System.Data.OleDb;
 namespace flights
 {
     public partial class adminScreen : Form
@@ -25,8 +24,10 @@ namespace flights
 
             // set default format for time cell to 24 hour clock
             this.timeDataGridViewTextBoxColumn.DefaultCellStyle.Format = "HH:mm";
+           //  this.scheduleTableAdapter.Connection.Close();
         }
 
+        // save changes made to the Schedule table
         private void saveChangesBtn_Click(object sender, EventArgs e)
         {
             try
@@ -43,8 +44,10 @@ namespace flights
             }
         }
 
+        // cancel changes currently being made
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            // confirm if the user wants to cancel
             if (MessageBox.Show("Do you want to cancel all changes?", "Confirm", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 scheduleBindingSource.CancelEdit();
@@ -53,6 +56,7 @@ namespace flights
             }
         }
 
+        // return to home screen
         private void exitBtn_Click(object sender, EventArgs e)
         {
             homeScreen hS = new homeScreen();
