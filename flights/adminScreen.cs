@@ -24,7 +24,11 @@ namespace flights
 
             // set default format for time cell to 24 hour clock
             this.timeDataGridViewTextBoxColumn.DefaultCellStyle.Format = "HH:mm";
-           //  this.scheduleTableAdapter.Connection.Close();
+
+            // daatagridview causes wait cursor become stuck, this will reset cursor to default
+            Application.UseWaitCursor = false;
+            dataGridView1.Cursor = null;
+
         }
 
         // save changes made to the Schedule table
@@ -37,6 +41,11 @@ namespace flights
                 this.scheduleTableAdapter.Update(this.flightsDataSet);
 
                 MessageBox.Show("Update Successful");
+
+                this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
+
+                // set default format for time cell to 24 hour clock
+                this.timeDataGridViewTextBoxColumn.DefaultCellStyle.Format = "HH:mm";
             }
             catch (System.Exception ex)
             { 

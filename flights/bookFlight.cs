@@ -175,10 +175,12 @@ namespace flights
                     // check for seat availabilty
                     checkSeats();
 
+                    // display selected flight in debug console
                     Debug.WriteLine("------------------------------- Flight --------------------------------\n" + 
                         "FlightNo: " + this.flightNoComboBox.Text + " Departing: " + this.departingMenu.Text + " & Arriving: " + this.arrivingMenu.Text + " Date: " +this.dateMenu.Text + " Time: " + this.timeMenu.Text 
                         + "\n ---------------------------------------------------------------------------");
 
+                    // close connection to database
                     conn.Close();
                 }
 
@@ -236,6 +238,7 @@ namespace flights
                         if (first > 0) {
                             seatMenu.Items.Add("First");
                         }
+                        // display seat 
                         Debug.WriteLine("------------- Available Seats ---------------- \n" + 
                             "Economy: 5" + economy +  " Business: " + business + " First: " + first + 
                             "\n ---------------------------------------");
