@@ -195,7 +195,7 @@ namespace flights
         // this brings the user to the home screen
         private void cancelBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to exit to the home screen?", "Confirm", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Do you want to exit to the home screen?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 connection.Close();
 

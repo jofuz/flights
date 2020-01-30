@@ -34,22 +34,25 @@ namespace flights
         // save changes made to the Schedule table
         private void saveChangesBtn_Click(object sender, EventArgs e)
         {
-            try
+            if (MessageBox.Show("Do you want to Save Changes?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                this.Validate();
-                this.scheduleBindingSource.EndEdit();
-                this.scheduleTableAdapter.Update(this.flightsDataSet);
+                try
+                {
+                    this.Validate();
+                    this.scheduleBindingSource.EndEdit();
+                    this.scheduleTableAdapter.Update(this.flightsDataSet);
 
-                MessageBox.Show("Update Successful");
+                    MessageBox.Show("Update Successful");
 
-                this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
+                    this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
 
-                // set default format for time cell to 24 hour clock
-                this.timeDataGridViewTextBoxColumn.DefaultCellStyle.Format = "HH:mm";
-            }
-            catch (System.Exception ex)
-            { 
-                MessageBox.Show("Update Failed: \n" + ex);
+                    // set default format for time cell to 24 hour clock
+                    this.timeDataGridViewTextBoxColumn.DefaultCellStyle.Format = "HH:mm";
+                }
+                catch (System.Exception ex)
+                {
+                    MessageBox.Show("Update Failed: \n" + ex);
+                }
             }
         }
 
@@ -57,7 +60,7 @@ namespace flights
         private void cancelButton_Click(object sender, EventArgs e)
         {
             // confirm if the user wants to cancel
-            if (MessageBox.Show("Do you want to cancel all changes?", "Confirm", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show("Do you want to cancel all changes?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 scheduleBindingSource.CancelEdit();
                 this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
