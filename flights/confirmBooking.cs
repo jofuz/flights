@@ -85,14 +85,11 @@ namespace flights
                     OleDbDataAdapter adapter = new OleDbDataAdapter(insertCommand);
                     adapter.InsertCommand = insertCommand;
 
-                    MessageBox.Show("query: " + reservation);
-
                     insertCommand.ExecuteNonQuery();
 
                     // update seat availability in the flight schedule
                     string seatQuery = "UPDATE Schedule SET " + seatValue.Text + "=" + seatValue.Text + "-1 WHERE FlightNo ='" + flightNoValue.Text + "';";
                     OleDbCommand query = new OleDbCommand(seatQuery, conn);
-                    MessageBox.Show("query: " + seatQuery);
 
                     query.ExecuteNonQuery();
 
@@ -122,6 +119,21 @@ namespace flights
             bookFlight bF = new bookFlight();
             bF.Show();
             this.Close();
+        }
+
+        // force close application
+        private void exitAppBtn_Click(object sender, EventArgs e)
+        {
+            // confirm if the user wants to cancel
+            if (MessageBox.Show("Are you sure you want to exit the application?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Click the Confirm button to confirm the booking of the flight.\n" + "If you want change the booking, click the Cancel button.");
         }
     }
 }

@@ -80,6 +80,8 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.scheduleTableAdapter = new flights.flightsDataSetTableAdapters.ScheduleTableAdapter();
             this.exitBtn = new System.Windows.Forms.Button();
+            this.exitAppBtn = new System.Windows.Forms.Button();
+            this.helpBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).BeginInit();
@@ -541,6 +543,7 @@
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Position";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -591,11 +594,48 @@
             this.exitBtn.UseWaitCursor = true;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
+            // exitAppBtn
+            // 
+            this.exitAppBtn.BackColor = System.Drawing.Color.Red;
+            this.exitAppBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.exitAppBtn.FlatAppearance.BorderSize = 4;
+            this.exitAppBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitAppBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitAppBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.exitAppBtn.Location = new System.Drawing.Point(0, 60);
+            this.exitAppBtn.Name = "exitAppBtn";
+            this.exitAppBtn.Size = new System.Drawing.Size(115, 29);
+            this.exitAppBtn.TabIndex = 27;
+            this.exitAppBtn.Text = "Exit Application";
+            this.exitAppBtn.UseVisualStyleBackColor = false;
+            this.exitAppBtn.UseWaitCursor = true;
+            this.exitAppBtn.Click += new System.EventHandler(this.exitAppBtn_Click);
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.BackColor = System.Drawing.Color.Yellow;
+            this.helpBtn.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.helpBtn.FlatAppearance.BorderSize = 4;
+            this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpBtn.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.helpBtn.Location = new System.Drawing.Point(1047, 60);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(115, 29);
+            this.helpBtn.TabIndex = 29;
+            this.helpBtn.Text = "Help";
+            this.helpBtn.UseVisualStyleBackColor = false;
+            this.helpBtn.UseWaitCursor = true;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
+            // 
             // adminScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1162, 558);
+            this.ControlBox = false;
+            this.Controls.Add(this.helpBtn);
+            this.Controls.Add(this.exitAppBtn);
             this.Controls.Add(this.exitBtn);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.durationLabel);
@@ -624,7 +664,8 @@
             this.Controls.Add(this.seatsGroup);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "adminScreen";
-            this.Text = "Cyanair - Admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cyanair - Admin Screen";
             this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.AdminScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -690,5 +731,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn firstDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn durationDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Button exitAppBtn;
+        private System.Windows.Forms.Button helpBtn;
     }
 }

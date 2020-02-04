@@ -39,5 +39,21 @@ namespace flights
             aP.Show();
             this.Hide();
         }
+
+        // force close application
+        private void exitAppBtn_Click(object sender, EventArgs e)
+        {
+            // confirm if the user wants to cancel
+            if (MessageBox.Show("Are you sure you want to exit the application?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            //System.Diagnostics.Process.Start(@"help.txt");
+            MessageBox.Show("Click the Book A Flight button or click the Admin Screen button.");
+        }
     }
 }

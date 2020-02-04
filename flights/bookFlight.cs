@@ -34,12 +34,6 @@ namespace flights
 
         private void bookFlight_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'flightsDataSet.Schedule' table. You can move, or remove it, as needed.
-            //this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
-            // TODO: This line of code loads data into the 'flightsDataSet.Schedule' table. You can move, or remove it, as needed.
-            //this.scheduleTableAdapter.Fill(this.flightsDataSet.Schedule);
-            //this.timeMenu.FormatString = "HH:mm";
-
             try
             {
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
@@ -76,7 +70,6 @@ namespace flights
         // when destination is selected, query the database for matching arrival airports
         private void departingMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //MessageBox.Show("Departing: " + this.departingMenu.Text);
             try
             {
                 using (OleDbConnection conn = new OleDbConnection(connectionString))
@@ -270,6 +263,21 @@ namespace flights
             cB.Show();
             this.Close();
 
+        }
+
+        // force close application
+        private void exitAppBtn_Click(object sender, EventArgs e)
+        {
+            // confirm if the user wants to cancel
+            if (MessageBox.Show("Are you sure you want to exit the application?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Select a departure, arrival, date, time and seat class to continue.");
         }
     }
 }

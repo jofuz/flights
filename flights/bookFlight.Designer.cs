@@ -48,6 +48,8 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.idComboBox = new System.Windows.Forms.ComboBox();
             this.flightNoComboBox = new System.Windows.Forms.ComboBox();
+            this.exitAppBtn = new System.Windows.Forms.Button();
+            this.helpBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).BeginInit();
             this.SuspendLayout();
@@ -228,11 +230,46 @@
             this.flightNoComboBox.TabIndex = 18;
             this.flightNoComboBox.TabStop = false;
             // 
+            // exitAppBtn
+            // 
+            this.exitAppBtn.BackColor = System.Drawing.Color.Red;
+            this.exitAppBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.exitAppBtn.FlatAppearance.BorderSize = 4;
+            this.exitAppBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitAppBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitAppBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.exitAppBtn.Location = new System.Drawing.Point(1, 1);
+            this.exitAppBtn.Name = "exitAppBtn";
+            this.exitAppBtn.Size = new System.Drawing.Size(115, 29);
+            this.exitAppBtn.TabIndex = 28;
+            this.exitAppBtn.Text = "Exit Application";
+            this.exitAppBtn.UseVisualStyleBackColor = false;
+            this.exitAppBtn.Click += new System.EventHandler(this.exitAppBtn_Click);
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.BackColor = System.Drawing.Color.Yellow;
+            this.helpBtn.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.helpBtn.FlatAppearance.BorderSize = 4;
+            this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpBtn.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.helpBtn.Location = new System.Drawing.Point(350, 1);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(115, 29);
+            this.helpBtn.TabIndex = 29;
+            this.helpBtn.Text = "Help";
+            this.helpBtn.UseVisualStyleBackColor = false;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
+            // 
             // bookFlight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 487);
+            this.ControlBox = false;
+            this.Controls.Add(this.helpBtn);
+            this.Controls.Add(this.exitAppBtn);
             this.Controls.Add(this.flightNoComboBox);
             this.Controls.Add(this.idComboBox);
             this.Controls.Add(this.cancelBtn);
@@ -250,7 +287,8 @@
             this.Controls.Add(this.pageDescription);
             this.Controls.Add(this.cyanAirTitle);
             this.Name = "bookFlight";
-            this.Text = "bookFlight";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cyanair - Book A Flight";
             this.Load += new System.EventHandler(this.bookFlight_Load);
             ((System.ComponentModel.ISupportInitialize)(this.scheduleBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightsDataSet)).EndInit();
@@ -280,5 +318,7 @@
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.ComboBox idComboBox;
         private System.Windows.Forms.ComboBox flightNoComboBox;
+        private System.Windows.Forms.Button exitAppBtn;
+        private System.Windows.Forms.Button helpBtn;
     }
 }

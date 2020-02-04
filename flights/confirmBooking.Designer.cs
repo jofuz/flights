@@ -49,6 +49,8 @@
             this.timeValue = new System.Windows.Forms.Label();
             this.idValue = new System.Windows.Forms.Label();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.exitAppBtn = new System.Windows.Forms.Button();
+            this.helpBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pageDescription
@@ -261,11 +263,46 @@
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
+            // exitAppBtn
+            // 
+            this.exitAppBtn.BackColor = System.Drawing.Color.Red;
+            this.exitAppBtn.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.exitAppBtn.FlatAppearance.BorderSize = 4;
+            this.exitAppBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitAppBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitAppBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.exitAppBtn.Location = new System.Drawing.Point(0, 0);
+            this.exitAppBtn.Name = "exitAppBtn";
+            this.exitAppBtn.Size = new System.Drawing.Size(115, 29);
+            this.exitAppBtn.TabIndex = 26;
+            this.exitAppBtn.Text = "Exit Application";
+            this.exitAppBtn.UseVisualStyleBackColor = false;
+            this.exitAppBtn.Click += new System.EventHandler(this.exitAppBtn_Click);
+            // 
+            // helpBtn
+            // 
+            this.helpBtn.BackColor = System.Drawing.Color.Yellow;
+            this.helpBtn.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.helpBtn.FlatAppearance.BorderSize = 4;
+            this.helpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpBtn.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.helpBtn.Location = new System.Drawing.Point(477, 1);
+            this.helpBtn.Name = "helpBtn";
+            this.helpBtn.Size = new System.Drawing.Size(115, 29);
+            this.helpBtn.TabIndex = 29;
+            this.helpBtn.Text = "Help";
+            this.helpBtn.UseVisualStyleBackColor = false;
+            this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
+            // 
             // confirmBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(592, 482);
+            this.ControlBox = false;
+            this.Controls.Add(this.helpBtn);
+            this.Controls.Add(this.exitAppBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.idValue);
             this.Controls.Add(this.timeValue);
@@ -288,7 +325,8 @@
             this.Controls.Add(this.pageDescription);
             this.Controls.Add(this.cyanAirTitle);
             this.Name = "confirmBooking";
-            this.Text = "confirmBooking";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Cyanair - Confirm Booking";
             this.Load += new System.EventHandler(this.confirmBooking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -318,5 +356,7 @@
         private System.Windows.Forms.Label timeValue;
         private System.Windows.Forms.Label idValue;
         private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button exitAppBtn;
+        private System.Windows.Forms.Button helpBtn;
     }
 }

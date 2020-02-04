@@ -44,5 +44,20 @@ namespace flights
             hS.Show();
             this.Hide();
         }
+
+        // force close application
+        private void exitAppBtn_Click(object sender, EventArgs e)
+        {
+            // confirm if the user wants to cancel
+            if (MessageBox.Show("Are you sure you want to exit the application?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void helpBtn_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Enter the admin password and click the Continue button to advance to the admin area.\n" + "You can click the Back button to return to the home screen.");
+        }
     }
 }
